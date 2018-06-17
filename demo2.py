@@ -11,7 +11,7 @@ def creat_image(labels, centers):
             img[i, j] = centers[labels[i, j]]
     if(img.max() > 1):
         img /= 255
-    mpimg.imsave('Image Result.jpg', img)
+    mpimg.imsave('Image Result.jpg', img) # image result
     return img
 
 
