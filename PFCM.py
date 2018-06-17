@@ -74,3 +74,38 @@ def pdistfcm(cntr, data):
     for k in range(cntr.shape[0]):
         out[k] = np.sqrt(np.sum((np.power(data-cntr[k], 2)).T, axis=0))
     return out
+
+
+def pfcm_predict(data, cntr, expo=2, a=1, b=4, nc=3):
+    """
+    <h3>Possiblistic Fuzzy C-Means Clustering Prediction Algorithm</h3>
+    <b>Parameters :</b><ul>
+    <li><u>data</u>: Dataset to be clustered, with size M-by-N,
+    where M is the number of data points
+    and N is the number of coordinates for each data point.</li>
+    <li><u>cntr</u> : centers of the dataset previoulsy calculated</li>
+    <li><u>expo</u> : exponent for the U matrix (default = 2)</li>
+    <li><u>a</u> : User-defined constant a (default = 1)</li>
+    <li><u>b</u> : User-defined constant b that should be
+    greater than a (default = 4)</li>
+    <li><u>nc</u> : User-defined constant nc (default = 2)</li>
+    </ul>
+    The algortihm predicts which clusters the new dataset belongs to<br><br>
+    <b>Return values :</b><ul>
+    <li><u>U</u> : The C-Partionned Matrix (used in FCM)</li>
+    <li><u>T</u> : The Typicality Matrix (used in PCM)</li>
+    <li><u>obj_fcn</u> : The objective function for U and T</li>
+    </ul>
+    """
+    dist = pdistfcm(cntr, data)
+    tmp = np.power(dist, (-2/(nc-1)))
+    U = tmp/(np.sum(tmp, axis=0))
+    mf = np.power(U, expo)
+    ni = mf*np.power(dist, 2)/(np.sum(mf, axis=0))
+    tmpt = np.power((b/ni)*np.power(dist, 2), (1/(nc-1)))
+    T = 1/(1+tmpt)
+    tf = np.power(T, nc)
+    tfo = np.power((1-T), nc)
+    obj_fcn = np.sum(np.sum(np.power(dist, 2)*(a*mf+b*tf), axis=0)) + np.sum(
+        ni*np.sum(tfo, axis=0))
+    return U, T, obj_fcn
