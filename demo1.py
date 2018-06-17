@@ -57,8 +57,7 @@ for ncenters, ax in enumerate(axes1.reshape(-1), 2):
 
 fig1.tight_layout()
 ###############################################################################
-# Regenerate model with 3 cluster centers - note that center ordering
-# is random in this clustering algorithm, so the centers may change places
+# Regenerate model with 3 cluster centers - note that center ordering is random in this clustering algorithm, so the centers may change places
 cntr, U, T, obj_fcn = pfcm(alldata, 3)
 
 # Show 3-cluster model
@@ -75,14 +74,10 @@ ax2.legend()
 # Generate uniformly sampled data spread across the range [0, 10] in x and y
 newdata = np.random.uniform(0, 1, (1100, 2)) * 10
 
-# Predict new cluster membership with `cmeans_predict` as well as
-# `cntr` from the 3-cluster model
+# Predict new cluster membership with `cmeans_predict` as well as `cntr` from the 3-cluster model
 U, T, obj_fcn = pfcm_predict(newdata, cntr)
 
-# Plot the classified uniform data. Note for visualization the maximum
-# membership value has been taken at each point (i.e. these are hardened,
-# not fuzzy results visualized) but the full fuzzy result is the output
-# from pfcm_predict.
+# Plot the classified uniform data. Note for visualization the maximum membership value has been taken at each point
 cluster_membership = np.argmax(U, axis=0)  # Hardening for visualization
 
 fig3, ax3 = plt.subplots()
