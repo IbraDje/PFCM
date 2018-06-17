@@ -1,9 +1,8 @@
 from PFCM import pfcm
 import numpy as np
 import matplotlib.pyplot as plt
-import time
 
-start = time.clock()
+# the original test : https://pythonhosted.org/scikit-fuzzy/auto_examples/plot_cmeans.html#example-plot-cmeans-py
 colors = ['b', 'orange', 'g', 'r', 'c', 'm', 'y', 'k', 'Brown', 'ForestGreen']
 
 # Define three cluster centers
@@ -32,15 +31,13 @@ for label in range(3):
     ax0.plot(xpts[labels == label], ypts[labels == label], '.',
              color=colors[label])
 ax0.set_title('Test data: 200 points x3 clusters.')
-###############################################################################
 
 # Set up the loop and plot
 fig1, axes1 = plt.subplots(3, 3, figsize=(8, 8))
 alldata = np.vstack((xpts, ypts)).T
 
 for ncenters, ax in enumerate(axes1.reshape(-1), 2):
-    cntr, U, T, obj_fcn = pfcm(
-        alldata, ncenters)
+    cntr, U, T, obj_fcn = pfcm(alldata, ncenters)
 
     # Plot assigned clusters, for each data point in training set
     cluster_membership = np.argmax(U, axis=0)
@@ -56,5 +53,3 @@ for ncenters, ax in enumerate(axes1.reshape(-1), 2):
     ax.axis('off')
 
 fig1.tight_layout()
-
-print('elapsed time = {}'.format(time.clock() - start))
