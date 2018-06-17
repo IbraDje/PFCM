@@ -29,7 +29,7 @@ Possiblistic Fuzzy C-Means Algorithm in Python
     <li><u>T</u> : The Typicality Matrix (used in PCM)</li>
     <li><u>obj_fcn</u> : The objective function for U and T</li>
     </ul>
-    <lr>
+    <hr>
  
     <b>Parameters of the PFCM Prediction function (pfcm_predict)</b><ul>
     <li><u>data</u>: Dataset to be clustered, with size M-by-N,
