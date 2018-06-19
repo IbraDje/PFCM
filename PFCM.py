@@ -64,9 +64,9 @@ def pstepfcm(data, cntr, U, T, expo, a, b, nc, ni):
 
 
 def initf(c, data_n):
-    T = np.random.random(size=(c, data_n))
-    col_sum = np.sum(T, axis=0)
-    return T/col_sum
+    A = np.random.random(size=(c, data_n))
+    col_sum = np.sum(A, axis=0)
+    return A/col_sum
 
 
 def pdistfcm(cntr, data):
@@ -92,6 +92,7 @@ def pfcm_predict(data, cntr, expo=2, a=1, b=4, nc=3):
     </ul>
     The algortihm predicts which clusters the new dataset belongs to<br><br>
     <b>Return values :</b><ul>
+    <li><u>new_cntr</u> : The new clusters centers</li>
     <li><u>U</u> : The C-Partionned Matrix (used in FCM)</li>
     <li><u>T</u> : The Typicality Matrix (used in PCM)</li>
     <li><u>obj_fcn</u> : The objective function for U and T</li>
@@ -106,6 +107,8 @@ def pfcm_predict(data, cntr, expo=2, a=1, b=4, nc=3):
     T = 1/(1+tmpt)
     tf = np.power(T, nc)
     tfo = np.power((1-T), nc)
+    new_cntr = (np.dot(a*mf+b*tf, data).T/np.sum(
+        a*mf+b*tf, axis=1).T).T
     obj_fcn = np.sum(np.sum(np.power(dist, 2)*(a*mf+b*tf), axis=0)) + np.sum(
         ni*np.sum(tfo, axis=0))
-    return U, T, obj_fcn
+    return new_cntr, U, T, obj_fcn
