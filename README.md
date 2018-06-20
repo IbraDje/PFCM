@@ -3,6 +3,7 @@ Possiblistic Fuzzy C-Means Algorithm in Python
 
 - Algorithm explanation : https://www.researchgate.net/publication/3336300_A_Possibilistic_Fuzzy_C-Means_Clustering_Algorithm
 - Implementation of the algorithm MATLAB : https://www.ijser.org/researchpaper/implementation-of-possibilistic-fuzzy-cmeans-clustering-algorithm-in-matlab.pdf
+- This code is a free segmentation tool developed by students at Laboratoire LaRATIC, Institut National des Télécommunications et des TIC d’Oran. Algeria.  Thanks for putting this reference if you use it.
 
 
     <b>Parameters for the main function</b> (pfcm): <ul>
@@ -35,8 +36,7 @@ Possiblistic Fuzzy C-Means Algorithm in Python
     <li><u>data</u>: Dataset to be clustered, with size M-by-N,
     where M is the number of data points
     and N is the number of coordinates for each data point.</li>
-    <li><u>cntr</u> : centers of the dataset previoulsy calculated with size C-by-N where C is the number of cluster and
-    N is the number of coordinates for each data point</li>
+    <li><u>cntr</u> : centers of the dataset previoulsy calculated</li>
     <li><u>expo</u> : exponent for the U matrix (default = 2)</li>
     <li><u>a</u> : User-defined constant a (default = 1)</li>
     <li><u>b</u> : User-defined constant b that should be
@@ -45,6 +45,7 @@ Possiblistic Fuzzy C-Means Algorithm in Python
     </ul>
     The algortihm predicts which clusters the new dataset belongs to<br><br>
     <b>Return values :</b><ul>
+    <li><u>new_cntr</u> : The new clusters centers</li>
     <li><u>U</u> : The C-Partionned Matrix (used in FCM)</li>
     <li><u>T</u> : The Typicality Matrix (used in PCM)</li>
     <li><u>obj_fcn</u> : The objective function for U and T</li>
