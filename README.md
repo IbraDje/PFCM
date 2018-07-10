@@ -4,8 +4,9 @@ Possiblistic Fuzzy C-Means Algorithm in Python
 - Algorithm explanation : https://www.researchgate.net/publication/3336300_A_Possibilistic_Fuzzy_C-Means_Clustering_Algorithm
 - Implementation of the algorithm MATLAB : https://www.ijser.org/researchpaper/implementation-of-possibilistic-fuzzy-cmeans-clustering-algorithm-in-matlab.pdf
 
-Thanks for adding the reference if you use the code :
-<p>{Developped by DJEMAI Ibrahim, with TAYEB BEY Abdelmohaimene; students at the National Instiutte of Telecommunications and ICT - Oran - Algeria, supervised by Dr. Zigh Slimane}</p>
+ - Thanks for adding the reference if you use the code :
+    <p>{Developped by DJEMAI Ibrahim, with TAYEB BEY Abdelmohaimene
+    students at the National Instiutte of Telecommunications and ICT - Oran - Algeria, supervised by Dr. Zigh Slimane}</p>
 
 
     <b>Parameters for the main function</b> (pfcm): <ul>
