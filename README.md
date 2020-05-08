@@ -4,11 +4,6 @@ Possiblistic Fuzzy C-Means Algorithm in Python
 - Algorithm explanation : https://www.researchgate.net/publication/3336300_A_Possibilistic_Fuzzy_C-Means_Clustering_Algorithm
 - Implementation of the algorithm MATLAB : https://www.ijser.org/researchpaper/implementation-of-possibilistic-fuzzy-cmeans-clustering-algorithm-in-matlab.pdf
 
- - <b>Thanks for adding the reference if you use the code</b> :
-    <p>{Developped by DJEMAI Ibrahim, with TAYEB BEY Abdelmohaimene;
-     students at the National Institute of Telecommunications and ICT - Oran - Algeria, supervised by Dr. Zigh Slimane}</p>
-
-
     <b>Parameters for the main function</b> (pfcm): <ul>
     <li><u>data</u>: Dataset to be clustered, with size M-by-N, where M is the number of data points and N is the number of coordinates for each data point.</li>
     <li><u>c</u> : Number of clusters</li>
